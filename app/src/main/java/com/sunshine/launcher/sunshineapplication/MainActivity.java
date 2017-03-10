@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         String format = getFormate(new Date());
+        //测试注释
         btn1 = (Button) findViewById(R.id.btn1);
         textView01 = (TextView) findViewById(R.id.text01);
         textView02 = (TextView) findViewById(R.id.text02);
