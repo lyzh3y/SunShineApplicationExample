@@ -27,6 +27,8 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        String format = getFormate(new Date());
         btn1 = (Button) findViewById(R.id.btn1);
         textView01 = (TextView) findViewById(R.id.text01);
         textView02 = (TextView) findViewById(R.id.text02);
@@ -162,7 +165,12 @@ public class MainActivity extends AppCompatActivity {
         return response;
 
     }
-
+    private String getFormate(Date date){
+        String str = "";
+        SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-DD");
+         str = sdf.format(date);
+        return str;
+    }
     private String getResponseResultForList(String strTime, String endTime, String ctrFlag, String portFlag, String fltStation, String flightNum, String[] stopNum, String deputeFlight, String[] gateNum, String offset, String page, String limit) throws IOException, JSONException, URISyntaxException {
         String response = "";
         PostMethod method = null;
